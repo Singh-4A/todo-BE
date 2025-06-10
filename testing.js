@@ -22,6 +22,11 @@ app.listen(host, () => {
   console.log(host);
 });
 
+
+
+app.get("/", (req, res) => {
+  res.send("Welcome to Todo API");
+});
 // i am gonna write pollyfill for filter method
 
 // Array.prototype.MyReduce = function (callBack) {
