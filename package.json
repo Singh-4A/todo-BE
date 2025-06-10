@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "node testing.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0",
+    "nodemon": "^3.1.10"
+  }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <button id="btn">Click</button>
+    <button id="increment">Increment</button>
+    <input value="" name="name" id="input" />
+
+    <script>
+      // i am gonna write here debounce function
+
+      // function debounce(cb, time) {
+      //   let timeOutId;
+      //   return function (...arg) {
+      //     if (timeOutId) {
+      //       clearTimeout(timeOutId);
+      //     }
+
+      //     timeOutId = setTimeout(() => {
+      //       cb(...arg);
+      //     }, time);
+      //   };
+      // }
+
+      // const debounceData = debounce((e) => {
+      //   console.log(e.target.value);
+      // }, 1000);
+
+      // document.getElementById("input").addEventListener("input", (e) => {
+      //   debounceData(e);
+      // });
+
+
+
+
+
+
+      // // flatten array
+
+      // i am gonna write here logic for flatten Array
+      // const flatten = [1,[2,[3,[4,[5,[6,[7]]]]]]];
+
+      // function flattenFunc(arr) {
+      //   let result = [];
+      //   if (Array.isArray(arr)) {
+      //     arr.forEach((item) => {
+      //       return result.push(...flattenFunc(item));
+      //     });
+      //   } else {
+      //     result.push(arr);
+      //   }
+      //   return result;
+      // }
+
+      // console.log(flattenFunc(flatten));
+
+      // i am gonna write here for cache in javascript
+
+      // const cache = {};
+      // let key;
+      // function memoization(a, b) {
+      //   key = a + b;
+      //   if (!cache[key]) {
+      //     let data = a + b;
+      //     cache[key] = data;
+      //     return data;
+      //   } else {
+      //     cache[key] = key;
+      //   }
+      // }
+
+      // document.getElementById("btn").addEventListener("click", () => {
+      //   memoization(2, 3);
+      // });
+
+      // const reverseString = "hello arjun singh what are you doing";
+
+      // i am gonna write here for reverse logic using for loop
+      // let reverse = "";
+
+      // for (let i = reverseString.length - 1; i > 1; i--) {
+      //   reverse += reverseString[i];
+      // }
+
+      //   console.log(reverse);
+
+      // function reverse(stringValue) {
+      //   let reverseStringData = stringValue.split("").reverse().join("")
+      //   return reverseStringData;
+      // }
+
+      // console.log(reverse(reverseString));
+
+      // i am gonna write here for logic duplicate
+
+      // let duplicate = [1, 2, 3, 3, 3, 4, 5];
+
+      // let obj = {};
+
+      // for (let i = 0; i < duplicate.length; i++) {
+      //   if (obj[duplicate[i]] !== undefined) {
+      //     obj[duplicate[i]] = obj[duplicate[i]] + 1;
+      //   } else {
+      //     obj[duplicate[i]] = 1;
+      //   }
+      // }
+
+      // console.log(obj)
+
+      // i am gonna write here for logic deep copy and shallow copy
+
+      // const obj = {
+      //   name: "arjun",
+      //   lastName: "singh",
+      // };
+
+      // console.log(obj)
+
+      // const obj2 = {...obj}
+      // obj.lastName = "baghel";
+
+      // console.log(obj2)
+
+      // const cla = {
+      //   initial: 0,
+
+      //   add(a) {
+      //     let out = (this.initial += a);
+      //     this.initial = out;
+      //     return this;
+      //   },
+      //   multiply(a) {
+      //     let out = (this.initial *= a);
+      //     this.initial = out;
+      //     return this;
+      //   },
+      //   substring(a) {
+      //     let out = (this.initial -= a);
+      //     this.initial = out;
+      //     return this;
+      //   },
+      // };
+
+      // const output = cla.add(3)?.multiply(10)?.substring(3);
+
+      // const obj = {
+      //   name: "arjun",
+      //   an() {
+      //     console.log(this.name, "i am gonna getting nothing is here ");
+      //   },
+      // };
+
+      // setTimeout(function () {
+      //   obj.an();
+      // }, 100);
+
+      // console.log(output.initial, "hello outpu");
+
+      // i am gonna write here counting solution
+
+      // for (var i = 0; i < 5; i++) {
+      //   (function (j) {
+      //     setTimeout(() => {
+      //       console.log(j);
+      //     }, j * 1000);
+      //   })(i);
+      // }
+
+      // for (let i = 0; i < 5; i++) {
+      //   console.log(i);
+      // }
+
+      // i am gonna write here other solution
+
+      // for (var i = 0; i < 5; i++) {
+      //   function calling() {
+      //     return function (i) {
+      //       setTimeout(() => {
+      //         console.log(i);
+      //       }, i * 1000);
+      //     };
+      //   }
+      //   calling()(i);
+      // }
+    </script>
+  </body>
+</html>
