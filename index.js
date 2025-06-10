@@ -25,7 +25,7 @@ app.listen(host, () => {
 
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Todo API");
+  res.send("Welcome to Todo API All");
 });
 // i am gonna write pollyfill for filter method
 
