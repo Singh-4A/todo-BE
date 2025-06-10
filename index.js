@@ -1,14 +1,16 @@
 const express = require("express");
-
+require("dotenv").config(); // Load environment variables from .env file
 const connectionDb = require("./server/server");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" }); // Load environment variables fir
 const app = express();
-const host = 500;
+const host = process.env.PORT || 500;
 const cors = require("cors");
 
 // Enable CORS for all routes
 app.use(
   cors({
-    origin: ["http://localhost:5173/", "https://just-see-one.vercel.app/"],
+    origin: ["http://localhost:5173", "https://just-see-one.vercel.app"],
   })
 );
 
