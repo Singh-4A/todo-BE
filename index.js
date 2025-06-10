@@ -6,27 +6,25 @@ const host = 500;
 const cors = require("cors");
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors("http://localhost:500"));
 
 app.use(express.json());
 const router = require("./routers/user");
 const signupRouter = require("./routers/signupUser");
 const todoRouter = require("./routers/todoRoute");
 // connect database
-app.use("/user", router);
-app.use("/auth", signupRouter);
-app.use("/todo", todoRouter);
+app.use("/api/v1/user", router);
+app.use("/api/v1/auth", signupRouter);
+app.use("/api/v1/todo", todoRouter);
 connectionDb();
 
 app.listen(host, () => {
   console.log(host);
 });
 
-
-
-app.get("/", (req, res) => {
-  res.send("Welcome to Todo API All");
-});
+// app.get("/", (req, res) => {
+//   res.send("Welcome to Todo API All");
+// });
 // i am gonna write pollyfill for filter method
 
 // Array.prototype.MyReduce = function (callBack) {
