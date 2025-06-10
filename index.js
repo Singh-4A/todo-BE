@@ -24,7 +24,7 @@ app.use("/api/v1/auth", signupRouter);
 app.use("/api/v1/todo", todoRouter);
 connectionDb();
 
-app.get("/", (res, req) => {
+app.get("/", (req, res) => {
   res.send("Welcome my Api");
 });
 
