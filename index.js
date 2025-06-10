@@ -1,53 +1,44 @@
+// app.js or server.js
 const express = require("express");
-require("dotenv").config(); // Load environment variables from .env file
-const connectionDb = require("./server/server");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" }); // Load environment variables fir
+const connectDB = require("./server/server"); // Assuming this path is correct for your connectionDb.js
+
+// Load environment variables as early as possible
+dotenv.config({ path: "./config.env" });
+
 const app = express();
-const host = process.env.PORT || 500;
+const host = process.env.PORT || 500; // Use PORT from .env or default to 500
 const cors = require("cors");
 
-// Enable CORS for all routes
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://just-see-one.vercel.app"],
-  })
-);
-
+// Middleware
+app.use(cors({ origin: ["http://localhost:5173", "https://just-see-one.vercel.app"] }));
 app.use(express.json());
+
+// Import and use your routers
 const router = require("./routers/user");
 const signupRouter = require("./routers/signupUser");
 const todoRouter = require("./routers/todoRoute");
-// connect database
+
 app.use("/api/v1/user", router);
 app.use("/api/v1/auth", signupRouter);
 app.use("/api/v1/todo", todoRouter);
-connectionDb();
 
+// Basic route
 app.get("/", (req, res) => {
   res.send("Welcome my Api");
 });
 
-app.listen(host, () => {
-  console.log(host);
-});
+// Start the server ONLY after the database connection is successful
+const startServer = async () => {
+  try {
+    await connectDB(); // Await the database connection
+    app.listen(host, () => {
+      console.log(`Server running on port ${host}`);
+    });
+  } catch (error) {
+    console.error("Failed to connect to database or start server:", error);
+    process.exit(1); // Exit if connection or server fails
+  }
+};
 
-// app.get("/", (req, res) => {
-//   res.send("Welcome to Todo API All");
-// });
-// i am gonna write pollyfill for filter method
-
-// Array.prototype.MyReduce = function (callBack) {
-//   const initialValue = initialValue;
-
-//   for (let i = 0; i < this.length; i++) {
-//     let result = [];
-//     if (callBack(this[i], i, this)) result.push(callBack(this[i]));
-//   }
-//   return result;
-// };
-
-// const array = [1, 2, 3, 4, 5];
-
-// const getValue = array.MyReduce((item) => item > 4);
-// console.log(getValue)
+startServer(); // Call the function to start the server

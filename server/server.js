@@ -1,19 +1,30 @@
+// connectionDb.js
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" }); // Load environment variables first
 
-// const DB = process.env.DATABASE_URL;
+// Ensure environment variables are loaded here if this file is the entry point
+// or if it might be called standalone. If your main server file loads it,
+// you might not strictly need it here, but it's safer.
+dotenv.config({ path: "./config.env" });
 
-const connectionDb = async () => {
-  return await mongoose.connect("mongodb://127.0.0.1:27017/myTesting", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    // useCreateIndex: true, // Deprecated in Mongoose 6+, remove if using newer versions
-    // useFindAndModify: false // Deprecated in Mongoose 6+, remove if using newer versions
-  });
+// Increase the buffer timeout at a global level for Mongoose
+mongoose.set('bufferTimeoutMS', 30000);
+
+const connectDB = async () => {
+  try {
+    // You can use a process.env variable for your connection string as well
+    // const conn = await mongoose.connect(process.env.MONGODB_URI, {
+    const conn = await mongoose.connect("mongodb://127.0.0.1:27017/myTesting", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // The options useCreateIndex and useFindAndModify are deprecated in Mongoose 6+
+      // So, you should remove them if you're using a newer Mongoose version.
+    });
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1); // Exit process with failure
+  }
 };
 
-mongoose.set('bufferTimeoutMS', 30000)
-module.exports = connectionDb;
-// console.log('DB URI:', process.env.DATABASE); // Log to verify
-// console.log('DB Password exists:', !!process.env.DATABASE_PASSWORD); // Log to verify
+module.exports = connectDB;
