@@ -6,7 +6,11 @@ const host = 500;
 const cors = require("cors");
 
 // Enable CORS for all routes
-app.use(cors("http://localhost:500"));
+app.use(
+  cors({
+    origin: ["http://localhost:5173/", "https://just-see-one.vercel.app/"],
+  })
+);
 
 app.use(express.json());
 const router = require("./routers/user");
