@@ -24,6 +24,10 @@ app.use("/api/v1/auth", signupRouter);
 app.use("/api/v1/todo", todoRouter);
 connectionDb();
 
+app.get("/", (res, req) => {
+  res.send("Welcome my Api");
+});
+
 app.listen(host, () => {
   console.log(host);
 });
