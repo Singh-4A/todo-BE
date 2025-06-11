@@ -10,6 +10,11 @@ dotenv.config({ path: "../config.env" }); // adjust if config in root
 const app = express();
 app.use(express.json());
 
+app.use((err, req, res, next) => {
+  console.error("Unhandled server error:", err);
+  res.status(500).json({ error: err.message });
+});
+
 app.use(
   cors({ origin: ["http://localhost:5173", "https://just-see-one.vercel.app"] })
 );

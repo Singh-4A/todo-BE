@@ -8,19 +8,13 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
 // Increase the buffer timeout at a global level for Mongoose
-mongoose.set('bufferTimeoutMS', 30000);
+mongoose.set("bufferTimeoutMS", 30000);
 
 const connectDB = async () => {
   try {
     // You can use a process.env variable for your connection string as well
     // const conn = await mongoose.connect(process.env.MONGODB_URI, {
-    const conn = await mongoose.connect("mongodb://127.0.0.1:27017/myTesting", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      // The options useCreateIndex and useFindAndModify are deprecated in Mongoose 6+
-      // So, you should remove them if you're using a newer Mongoose version.
-    });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    await mongoose.connect("mongodb://127.0.0.1:27017/myTesting");
   } catch (error) {
     console.error(`Error: ${error.message}`);
     process.exit(1); // Exit process with failure
