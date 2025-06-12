@@ -18,12 +18,11 @@ app.use((err, req, res, next) => {
 
 app.use(
   cors({
-    origin: ["https://just-see-one.vercel.app"], // Allow your frontend domain
+  origin: ["https://just-2catlnkhx-singh-4as-projects.vercel.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
-
-app.use(cors({ origin: "*" }));
 
 
 
