@@ -20,7 +20,6 @@ app.use(
   cors({
     origin: ["https://just-see-one.vercel.app"], // Allow your frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"],       // Allowed methods
-    credentials: true                                 // If you're using cookies or auth headers
   })
 );
 
