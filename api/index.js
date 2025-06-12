@@ -19,10 +19,11 @@ app.use((err, req, res, next) => {
 
 app.use(
   cors({
-    origin: ["https://just-2catlnkhx-singh-4as-projects.vercel.app/"],
+    origin: ["https://just-9mab5hxbz-singh-4as-projects.vercel.app//"],
 
   })
 );
+
 
 app.use(express.json());
 app.use("/api/v1/user", router);
