@@ -21,7 +21,6 @@ app.use(cors({
   origin: "https://just-9mab5hxbz-singh-4as-projects.vercel.app",
 }));
 
-app.use('/*fallback', (req, res) => res.send('404'));
 
 
 
@@ -30,6 +29,7 @@ app.use("/api/v1/user", router);
 app.use("/api/v1/auth", signupRouter);
 app.use("/api/v1/todo", todoRouter);
 app.get("/", (req, res) => res.send("Welcome my Api"));
+app.use(cors());    
 
 // Export the app for Vercel to handle
 module.exports = app;
