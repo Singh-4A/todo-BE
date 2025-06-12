@@ -5,7 +5,7 @@ const signupRouter = require("../routers/signupUser");
 const todoRouter = require("../routers/todoRoute");
 const cors = require("cors");
 
-dotenv.config({ path: "../config.env" }); // adjust if config in root
+dotenv.config({ path: ".env" }); // adjust if config in root
 
 const app = express();
 app.use(express.json());
@@ -17,12 +17,14 @@ app.use((err, req, res, next) => {
 
 
 
-app.use(
-  cors({
-    origin: ["https://just-9mab5hxbz-singh-4as-projects.vercel.app//"],
+app.use(cors({
+  origin: "https://just-9mab5hxbz-singh-4as-projects.vercel.app",
+  credentials: true,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
-  })
-);
+app.options("*", cors());  // enable for all routes
 
 
 app.use(express.json());
