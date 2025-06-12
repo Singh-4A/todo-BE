@@ -15,9 +15,18 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
+
 app.use(
-  cors({ origin: ["http://localhost:5173", "https://just-see-one.vercel.app"] })
+  cors({
+    origin: ["https://just-see-one.vercel.app"], // Allow your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"],       // Allowed methods
+    credentials: true                                 // If you're using cookies or auth headers
+  })
 );
+
+app.use(cors({ origin: "*" }));
+
+
 app.use(express.json());
 app.use("/api/v1/user", router);
 app.use("/api/v1/auth", signupRouter);
