@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 // Ensure environment variables are loaded here if this file is the entry point
 // or if it might be called standalone. If your main server file loads it,
 // you might not strictly need it here, but it's safer.
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: ".env" });
 
 // Increase the buffer timeout at a global level for Mongoose
 mongoose.set("bufferTimeoutMS", 30000);
@@ -31,7 +31,7 @@ async function connectDB() {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
     cached.promise = await mongoose
-      .connect("mongodb://127.0.0.1:27017/myTesting")
+      .connect(process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/myTesting")
       .then((m) => (cached.conn = m));
   }
   return cached.promise;
