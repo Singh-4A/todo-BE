@@ -19,12 +19,10 @@ app.use((err, req, res, next) => {
 
 app.use(cors({
   origin: "https://just-9mab5hxbz-singh-4as-projects.vercel.app",
-  credentials: true,
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-app.options("*", cors());  // enable for all routes
+app.use('/*fallback', (req, res) => res.send('404'));
+
 
 
 app.use(express.json());
