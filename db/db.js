@@ -30,6 +30,8 @@ if (!cached) {
 async function connectDB() {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
+    console.log(process.env.DATABASE_URL)
+
     cached.promise = await mongoose
       .connect(process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/myTesting")
       .then((m) => (cached.conn = m));

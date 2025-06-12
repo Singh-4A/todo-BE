@@ -6,6 +6,7 @@ dotenv.config({ path: ".env" });
 const startServer = async () => {
   try {
     await connectDB();
+    console.log(process.env.PORT)
     const port = process.env.PORT || 500;
     app.listen(port, () => console.log(`Server running on port ${port}`));
   } catch (err) {
