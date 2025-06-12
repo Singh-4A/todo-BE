@@ -1,8 +1,7 @@
 const app = require("./api/index");
 const dotenv = require("dotenv");
-const connectDB = require("./server/server");
-
-dotenv.config({ path: "./config.env" });
+const connectDB = require("./db/db");
+dotenv.config({ path: ".env" });
 
 const startServer = async () => {
   try {
