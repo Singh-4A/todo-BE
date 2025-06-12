@@ -16,15 +16,13 @@ app.use((err, req, res, next) => {
 });
 
 
+
 app.use(
   cors({
-  origin: ["https://just-2catlnkhx-singh-4as-projects.vercel.app/"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://just-2catlnkhx-singh-4as-projects.vercel.app/"],
+
   })
 );
-
-
-
 
 app.use(express.json());
 app.use("/api/v1/user", router);
