@@ -18,7 +18,7 @@ app.use((err, req, res, next) => {
 
 
 app.use(cors({
-  origin: "https://just-9mab5hxbz-singh-4as-projects.vercel.app",
+  origin: ["http://localhost:5173", "https://just-9mab5hxbz-singh-4as-projects.vercel.app"],
 }));
 
 
@@ -29,7 +29,7 @@ app.use("/api/v1/user", router);
 app.use("/api/v1/auth", signupRouter);
 app.use("/api/v1/todo", todoRouter);
 app.get("/", (req, res) => res.send("Welcome my Api"));
-app.use(cors());    
+app.use(cors());
 
 // Export the app for Vercel to handle
 module.exports = app;
