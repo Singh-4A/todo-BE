@@ -6,8 +6,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    skill: { type: [String], required: true }
+
   },
-  { timestamps: true }
+  { timestamps: true },
+
 );
 
 

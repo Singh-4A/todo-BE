@@ -4,10 +4,9 @@ const TodoModel = require("../model/todoModel");
 
 const createTodo = async (req, res) => {
   try {
-    const { name } = req.body;
-
-    let newUser = new TodoModel({ name });
-    let existingUser = await TodoModel.findOne({ name });
+    const { name ,skill} = req.body;
+    let newUser = new TodoModel({ name,skill  });
+    let existingUser = await TodoModel.findOne({ name ,skill });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }

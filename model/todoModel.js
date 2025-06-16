@@ -5,6 +5,7 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  skill: { type: [String], required: true }
 });
 
 const TodoModel = mongoose.model("Todo", todoSchema);
