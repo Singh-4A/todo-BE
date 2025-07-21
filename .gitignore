@@ -1,42 +1,25 @@
 # Logs
-logs/
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 
-# Runtime & PID data
-pids/
-*.pid
-*.seed
-*.pid.lock
+node_modules
+dist
+dist-ssr
+*.local
+.env
 
-# Dependency directories
-node_modules/
-
-# Build outputs & coverage
-dist/
-dist-ssr/
-coverage/
-.nyc_output/
-
-# Caches
-.npm
-.eslintcache
-.node_repl_history
-.rpt2_cache*/
-build/Release
-
-# Archived packages
-*.tgz
-.yarn-integrity
-
-# Env/secrets
-.env*
-.npmignore
-
-# IDE & OS
-.vscode/
-.idea/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
