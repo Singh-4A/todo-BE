@@ -5,293 +5,329 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width= , initial-scale=1.0" />
   <title>Document</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
     integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </head>
 
 <body>
   <button id="btn">Click</button>
   <button id="increment">Increment</button>
   <input value="" name="name" id="input" />
+  <h1 id="coder"> Hello Coder</h1>
+
+  <ul id="myid" style="cursor: pointer;">
+      <li>Arju</li>
+      <li>ankit</li>
+      <li>anuj</li>
+    </ul>
 
   <script>
-    // i am gonna write here debounce function
-
-    // function debounce(cb, time) {
-    //   let timeOutId;
-    //   return function (...arg) {
-    //     if (timeOutId) {
-    //       clearTimeout(timeOutId);
-    //     }
-
-    //     timeOutId = setTimeout(() => {
-    //       cb(...arg);
-    //     }, time);
-    //   };
-    // }
-
-    // const debounceData = debounce((e) => {
-    //   console.log(e.target.value);
-    // }, 1000);
-
-    // document.getElementById("input").addEventListener("input", (e) => {
-    //   debounceData(e);
-    // });
-
-
-
-
-
-
-    // // flatten array
-
-    // i am gonna write here logic for flatten Array
-    // const flatten = [1,[2,[3,[4,[5,[6,[7]]]]]]];
-
-    // function flattenFunc(arr) {
-    //   let result = [];
-    //   if (Array.isArray(arr)) {
-    //     arr.forEach((item) => {
-    //       return result.push(...flattenFunc(item));
-    //     });
-    //   } else {
-    //     result.push(arr);
-    //   }
-    //   return result;
-    // }
-
-    // console.log(flattenFunc(flatten));
-
-    // i am gonna write here for cache in javascript
-
-    // const cache = {};
-    // let key;
-    // function memoization(a, b) {
-    //   key = a + b;
-    //   if (!cache[key]) {
-    //     let data = a + b;
-    //     cache[key] = data;
-    //     return data;
-    //   } else {
-    //     cache[key] = key;
-    //   }
-    // }
-
-    // document.getElementById("btn").addEventListener("click", () => {
-    //   memoization(2, 3);
-    // });
-
-    // const reverseString = "hello arjun singh what are you doing";
-
-    // i am gonna write here for reverse logic using for loop
-    // let reverse = "";
-
-    // for (let i = reverseString.length - 1; i > 1; i--) {
-    //   reverse += reverseString[i];
-    // }
-
-    //   console.log(reverse);
-
-    // function reverse(stringValue) {
-    //   let reverseStringData = stringValue.split("").reverse().join("")
-    //   return reverseStringData;
-    // }
-
-    // console.log(reverse(reverseString));
-
-    // i am gonna write here for logic duplicate
-
-    // let duplicate = [1, 2, 3, 3, 3, 4, 5];
-
-    // let obj = {};
-
-    // for (let i = 0; i < duplicate.length; i++) {
-    //   if (obj[duplicate[i]] !== undefined) {
-    //     obj[duplicate[i]] = obj[duplicate[i]] + 1;
-    //   } else {
-    //     obj[duplicate[i]] = 1;
-    //   }
-    // }
-
-    // console.log(obj)
-
-    // i am gonna write here for logic deep copy and shallow copy
-
-    // const obj = {
-    //   name: "arjun",
-    //   lastName: "singh",
-    // };
-
-    // console.log(obj)
-
-    // const obj2 = {...obj}
-    // obj.lastName = "baghel";
-
-    // console.log(obj2)
 
     // const cla = {
-    //   initial: 0,
-
+    //   total: 0,
     //   add(a) {
-    //     let out = (this.initial += a);
-    //     this.initial = out;
-    //     return this;
+    //     this.total += a
+    //     return this
     //   },
-    //   multiply(a) {
-    //     let out = (this.initial *= a);
-    //     this.initial = out;
-    //     return this;
+    //   multiply(m) {
+    //     this.total *= m
+    //     return this
     //   },
-    //   substring(a) {
-    //     let out = (this.initial -= a);
-    //     this.initial = out;
-    //     return this;
+    //   substring(s) {
+    //     this.total -= s
+    //     return this
     //   },
-    // };
 
-    // const output = cla.add(3)?.multiply(10)?.substring(3);
 
-    // const obj = {
-    //   name: "arjun",
-    //   an() {
-    //     console.log(this.name, "i am gonna getting nothing is here ");
-    //   },
-    // };
-
-    // setTimeout(function () {
-    //   obj.an();
-    // }, 100);
-
-    // console.log(output.initial, "hello outpu");
-
-    // i am gonna write here counting solution
-
-    // for (var i = 0; i < 5; i++) {
-    //   (function (j) {
-    //     setTimeout(() => {
-    //       console.log(j);
-    //     }, j * 1000);
-    //   })(i);
     // }
 
-    // for (let i = 0; i < 5; i++) {
-    //   console.log(i);
-    // }
+    // const output = cla.add(3)?.multiply(10)?.substring(3).add(3)
+    // console.log(output.total, "outPut")
 
-    // i am gonna write here other solution
 
-    // for (var i = 0; i < 5; i++) {
-    //   function calling() {
-    //     return function (i) {
-    //       setTimeout(() => {
-    //         console.log(i);
-    //       }, i * 1000);
-    //     };
+    // const flttentArray = [1, [2, [3, [4]]]]
+
+    // function flttentOutArrayOutPut(arr) {
+
+    //   let result = []
+
+    //   if (Array.isArray(arr)) {
+    //     arr.forEach((value) =>
+    //       result.push(...flttentOutArrayOutPut(value))
+    //     )
+    //   } else {
+    //     result.push(arr)
     //   }
-    //   calling()(i);
+
+    //   return result
+    // }
+
+    // console.log(flttentOutArrayOutPut(flttentArray))
+
+
+    // const duplicate = ["arjun","arjiuj","arjun"]
+
+
+    // let obj = {}
+
+    // for (let i = 0; i < duplicate.length; i++) {
+    //   let key = duplicate[i]
+    //   if (obj[key] !== undefined) {
+    //     obj[key] = obj[key] + 1
+    //   } else {
+    //     obj[key] = 1
+    //   }
+    // }
+
+    // for (key in obj) {
+    //   const get = `${key} :${obj[key]}`
+    //   console.log(get)
+    // }
+
+    // const cache = {}
+    // let key;
+    // console.log(key, "key")
+    // function memozaition(a, b) {
+    //   key = a + b
+
+    //   if (!cache[key]) {
+    //     let result = a + b
+    //     cache[key] = result
+    //     console.log(result, "result")
+    //     return result
+
+    //   } else {
+
+    //     console.log("no")
+    //   }
     // }
 
 
+    // document.getElementById("btn").addEventListener("click", () => {
+    //   memozaition(1, 2)
+    // })
 
-    // i am going to write over there polyfill for map function
 
+    // i a gonna write here pollyfill for map method
 
-
-
-    // Array.prototype.MyMap = function (cb) {
+    // Array.prototype.mymap = function (cb) {
     //   if (typeof cb !== "function") {
-    //     console.error("my map function is not define");
-
+    //     console.error("myMpa is not defined")
     //   }
     //   let result = []
+
     //   for (let i = 0; i < this.length; i++) {
     //     result.push(cb(this[i], i, this))
     //   }
     //   return result
-
     // }
 
-    // let data = ["hello ", "ahau"]
-    // data.MyMap((item) => console.log(item))
 
-    // i am gonan write over here foreach pollyfill
-
-    // Array.prototype.myForeach = function (cb) {
+    // Array.prototype.myforeach = function (cb) {
 
     //   if (typeof cb !== "function") {
-    //     console.log("myForeach functioj is not define")
+    //     console.log("myforeach function is not defined")
     //   }
+
 
     //   for (let i = 0; i < this.length; i++) {
     //     cb(this[i], i, this)
     //   }
-
     // }
 
-    // let data = ["hello ", "ahau"]
-    // data.myForeach((item) => console.log(item))
 
 
-    // i am gonna write here filter pollyfill
     // Array.prototype.myFilter = function (cb) {
     //   if (typeof cb !== "function") {
-    //     console.log("myFilter function not defined")
+    //     throw new TypeError("Callback must be a function");
     //   }
 
-
-    //   let result = []
+    //   let result = [];
 
     //   for (let i = 0; i < this.length; i++) {
     //     if (cb(this[i], i, this)) {
-    //       result.push(this[i])
+    //       result.push(this[i]);
     //     }
     //   }
 
-    //   return result
-
+    //   return result;
     // }
 
+    // Array.prototype.myReduce = function (cb, initial) {
 
-    // Array.prototype.myReduce = function (cb, initialValue) {
-
-    //   if (typeof cb !== "function") {
-    //     console.error("myReduce function is not defined ")
-    //   }
-
-    //   let accumulator = initialValue;
+    //   let initialValue=initial
 
     //   for (let i = 0; i < this.length; i++) {
-    //     accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i]
-
+    //     initialValue = initialValue ? cb(initialValue, this[i], i, this) : this[i]
     //   }
 
-    //   return accumulator
+    //   return initialValue
+
 
     // }
 
-    const cla = {
-      initial: 0,
-      add(a) {
-        this.initial += a
-        return this
-      },
-      multiply(mul) {
-        this.initial *= mul
-        return this
-      }, substring(sub) {
-        this.initial -= sub
-        return this
-      }
+    // const arr = [1, 2, 3, 4, 5, 6]
+    // let data = arr.myReduce((initial, currentValue) => initial * currentValue, 2)
+    // console.log(data)
 
+
+    // function debounce(cb, delly) {
+    //   let timeId
+    //   return function (...arg) {
+    //     if (timeId) clearTimeout(timeId);
+    //     timeId = setTimeout(() => {
+    //       cb(...arg)
+    //     }, delly)
+    //   }
+    // }
+
+    // const dellyFunction = debounce((e) => {
+    //   console.log(e)
+    // }, 1000)
+    // document.getElementById("input").addEventListener("input", (e) => {
+    //   dellyFunction(e.target.value)
+    // })
+
+
+    // const reverseString = "hello arju  what are you doing nothing ullhawhata   wdsds sivani"
+
+    // function reverseValue(currentValue) {
+    //   const value = currentValue.split("").reverse().join("")
+
+    //   return value
+    // }
+    // console.log(reverseValue(reverseString))
+
+    // let reverse = ""
+
+    // for (let i = reverseString.length - 1; i > 0; i--) {
+    //   reverse += reverseString[i]
+    // }
+    // console.log(reverse)
+
+
+    // const arr = [10, 2, 3, 4, 5, 6,79,199, 200]
+    // let min =arr[0]
+    // let max = arr[0]
+
+    // for (let i = 0; i < arr.length; i++) {
+
+    //   if (arr[i] >= max) {
+    //     max = arr[i]
+    //     console.log(arr[i],"hello")
+    //   } else if (min <= arr[i]) {
+    //     min = arr[i]
+
+    //   }
+    // }
+
+    // console.log(max)
+    // console.log(min)
+
+    // const arr = [1, 2, 3, 489, 50000, 99, 100, 500]
+
+    // let highValue = arr[0]
+    // let secondValue = arr[0]
+
+
+    // for (let i = 0; i < arr.length; i++) {
+    //   let value = arr[i]
+
+    //   if (value > highValue) {
+    //     secondValue = highValue,
+    //       highValue = value
+    //   } else if (value > highValue && secondValue < value) {
+    //     secondValue = value
+    //   }
+    // }
+
+    // console.log(highValue, "highValue")
+    // console.log(secondValue, "secondValue")
+    // const arr = [10, 20, 3, 489, 50000, 99, 100, 500]
+    // let min = arr[0]
+    // let max = arr[0]
+
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] < min) {
+    //     min = arr[i]
+    //   } else if (arr[i] > max) {
+    //     max = arr[i]
+    //   }
+    // }
+
+    // console.log(min)
+    // console.log(max)
+
+
+
+
+
+
+
+    const box = document.createElement("div")
+
+    const ul = document.createElement("ul")
+    ul.style.display = "flex"
+    ul.style.justifyContent = "center"
+    ul.style.alignItems = "center"
+    ul.style.gap = "10px"
+    ul.style.flexFlow = "wrap"
+
+    box.appendChild(ul)
+
+    async function fechData() {
+      let data = await fetch("./data.json")
+      let res = await data.json()
+
+
+      {
+        res.forEach((item) => {
+          console.log(item)
+          let li = document.createElement("li")
+          li.textContent = item.name
+          li.style.listStyle = "none "
+          li.style.border = "1px solid black "
+          li.style.padding = "10px"
+          li.style.cursor = "pointer"
+          li.onclick = () => {
+            console.log(item)
+          }
+          li.onmouseover = () => {
+            li.style.backgroundColor = "red"
+            li.style.color = "white"
+          }
+          li.onmouseleave = () => {
+            li.style.backgroundColor = "white"
+            li.style.color = "black"
+          }
+
+
+          ul.appendChild(li)
+
+        })
+      }
+      console.log(res)
     }
 
+    // fechData()
 
-    const output = cla.add(3)?.multiply(10)?.substring(3).add(3)
-    console.log(output.initial, "outPut")
+
+    var a = 10
+    document.write(a + "" + b)
+    var b = 20
+
+
+
+
+
+
+
 
 
   </script>
+
+   <script src="./new.js" defer></script>
 </body>
 
 </html>
