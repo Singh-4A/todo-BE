@@ -101,7 +101,7 @@ async function sendEmail(email, name, content, url) {
 
 // Schedule: every Monday at 9 AM
 // cron.schedule('* * * * *', sendEmail);
-
+console.log(process.env.DATABASE_URL)
 
 app.use(express.json());
 app.use("/api/v1/user", router);
@@ -111,7 +111,6 @@ app.use("/api/v1/", clientRouter);
 
 
 app.get("/", (req, res) => res.send("Welcome my Api"));
-app.use(cors());
 
 // Export the app for Vercel to handle
 module.exports = { app, sendEmail }
