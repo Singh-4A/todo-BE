@@ -52,7 +52,7 @@ const signup = async (req, res) => {
     const { password: _, ...userData } = newUser.toObject();
     res.status(201).json({ message: "User signed up successfully", user: userData });
 
-    sendEmail(email,name)
+    sendEmail(email, name, "We’re thrilled to have you on board! Your account has been successfully created", "https://testing-git-main-singh-4as-projects.vercel.app/",)
 
 
 
