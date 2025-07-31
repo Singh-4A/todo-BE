@@ -21,7 +21,7 @@ app.use((err, req, res, next) => {
 
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://testing-git-main-singh-4as-projects.vercel.app", "http://localhost:8080", "portfolio-tau-dusky-20.vercel.app"],
+  origin: ["http://localhost:5173", "https://testing-git-main-singh-4as-projects.vercel.app", "http://localhost:8080", "https://arjun-singh-20.vercel.app"],
 }));
 
 
