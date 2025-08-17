@@ -8,8 +8,10 @@ const clientRouter = require("../routers/clientRouter")
 const todoRouter = require("../routers/todoRoute");
 const cors = require("cors");
 
-dotenv.config({ path: ".env" }); // adjust if config in root
-let cron = require("node-cron")
+dotenv.config(); // adjust if config in root
+let cron = require("node-cron");
+const googleRoute = require("../routers/googleRoute");
+const verifyToken = require("../authMiddleware/Middleware");
 
 const app = express();
 app.use(express.json());
@@ -105,8 +107,9 @@ console.log(process.env.DATABASE_URL)
 app.use(express.json());
 app.use("/api/v1/user", router);  
 app.use("/api/v1/auth", signupRouter);
-app.use("/api/v1/todo", todoRouter);
+app.use("/api/v1/todo",verifyToken, todoRouter);
 app.use("/api/v1/", clientRouter);
+app.use("/api/v1/google", googleRoute);
 
 
 app.get("/", (req, res) => res.send("Welcome my Api"));

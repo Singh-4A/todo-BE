@@ -5,6 +5,7 @@ const {
   updateTodoist,
   deleteTodoist,
 } = require("../controllers/todo");
+const verifyToken = require("../authMiddleware/Middleware");
 
 const todoRouter = express.Router();
 
